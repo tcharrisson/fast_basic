@@ -1,0 +1,11 @@
+# docker-compose.yml
+version: "3"
+services:
+  web:
+    image: sentiment-analyzer-api
+    build: .
+    command: poetry run uvicorn app:app --host 0.0.0.0
+    volumes:
+      - .:/app
+    ports:
+      - 8008:8000
